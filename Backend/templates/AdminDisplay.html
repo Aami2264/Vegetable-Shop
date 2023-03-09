@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card">
+                  <div class="card-body">
+                    <h3 class="card-title">Admin Details</h3>
+                    <div class="table-responsive">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th> User </th>
+                            <th> Name </th>
+                            <th> Email Id </th>
+                            <th> Contact No </th>
+                            <th> Username </th>
+                            <th> Password </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for d in data %}
+                          <tr>
+                            <td class="py-1">
+                              <img src="{{d.Image.url}}">
+                            </td>
+                            <td> {{d.Name}} </td>
+                            <td>{{d.Email}}
+                            </td>
+                            <td>{{d.Contact}}</td>
+                            <td> {{d.User}} </td>
+                            <td>{{d.Pass}}</td>
+                            <td>
+                              <form action="{% url 'edit' dataid=d.id%}">
+                              <button type="submit" class="btn btn-success btn-md">Edit</button>
+                              </form>
+                            </td>
+                            <td>
+                              <form action="{% url 'delete' dataid=d.id%}">
+                              <button type="submit" class="btn btn-success btn-md">Delete</button>
+                              </form>
+                            </td>
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+</body>
+</html>
+{% endblock %}

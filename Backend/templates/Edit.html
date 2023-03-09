@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card">
+                  <div class="card-body">
+                    <h3 class="card-title">Edit Admin Details</h3>
+                    <br>
+                    <form class="forms-sample" method="post" action="{% url 'update' dataid=data.id %}" enctype="multipart/form-data">
+                      {%csrf_token%}
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Name</label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Full Name" name="name" value="{{data.Name}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" name="email" value="{{data.Email}}">
+                      </div>
+                      <div class="form-group">
+                        <label>Contact No.</label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Mobile No" name="mobile" value="{{data.Mobile}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Username</label>
+                        <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username" name="username" value="{{data.User}}">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" value="{{data.Pass}}">
+                      </div>
+
+                      <div class="form-group">
+                        <label>Profile Image</label><br>
+                        <img src="{{data.Image.url}}" width="70px" height="70px">
+                        <input type="file" class="form-control" name="img">
+                      </div>
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-dark">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+</body>
+</html>
+{% endblock %}
