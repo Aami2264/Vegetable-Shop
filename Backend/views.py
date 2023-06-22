@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
 
 def indexpage(request):
-    return render(request,'index.html')
+    return render(request,'home.html')
 
 def AddAdmin(request):
     return render(request,'Addadmin.html')
