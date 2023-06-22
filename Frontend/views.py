@@ -7,7 +7,7 @@ import django.contrib.messages
 def homepage(request):
     data = categorydb.objects.all()
     da = Productdb.objects.all()
-    return render(request,'HomePage.html',{'data':data, 'da':da})
+    return render(request,'index.html',{'data':data, 'da':da})
 
 def aboutus(request):
     data = categorydb.objects.all()
